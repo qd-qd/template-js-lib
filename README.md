@@ -1,0 +1,3 @@
+# JS template
+
+WIP
