@@ -1,0 +1,23 @@
+name: Unit tests on push
+
+on:
+  push:
+    branches:
+      - main
+      - prod
+
+jobs:
+  unit-test:
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install modules
+        run: npm ci
+
+      - name: Run tests
+        run: npm run test -- -ci

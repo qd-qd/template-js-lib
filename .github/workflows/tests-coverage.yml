@@ -1,0 +1,28 @@
+name: Unit tests coverage
+
+# Run this workflow every time a PR is opened or updated
+on:
+  pull_request:
+    branches:
+      - main
+      - prod
+
+# This job runs the unit tests and comments the PR with the current coverage
+jobs:
+  unit-test-coverage:
+    permissions:
+      checks: write
+      pull-requests: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install modules
+        run: npm ci
+
+      # comment the PR with the current coverage
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          # The action automatically adds the relevant options
+          test-script: npm run test
