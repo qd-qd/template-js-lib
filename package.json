@@ -1,6 +1,6 @@
 {
   "name": "@qd-qd/template-js-lib",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A template to boostrap js library",
   "source": "src/index.ts",
   "module": "dist/module.js",
