@@ -19,7 +19,9 @@
     "build": "parcel build",
     "build:verbose": "npm run build -- --detailed-report",
     "build:watch": "parcel watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage",
+    "test:verbose": "npm run test -- --verbose"
   },
   "contributors": [
     {
@@ -40,6 +42,10 @@
   "devDependencies": {
     "@parcel/packager-ts": "^2.9.1",
     "@parcel/transformer-typescript-types": "^2.9.1",
+    "@swc/jest": "^0.2.26",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.2.5",
+    "jest": "^29.5.0",
     "parcel": "^2.9.1"
   }
 }
