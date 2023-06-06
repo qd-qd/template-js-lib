@@ -1,5 +1,5 @@
 {
-  "name": "js-template",
+  "name": "@qd-qd/template-js-lib",
   "version": "0.0.1",
   "description": "A template to boostrap js library",
   "source": "src/index.ts",
@@ -39,12 +39,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:qd-qd/js-template.git"
+    "url": "git@github.com:qd-qd/template-js-lib.git"
   },
   "bugs": {
-    "url": "https://github.com/qd-qd/js-template/issues"
+    "url": "https://github.com/qd-qd/template-js-lib/issues"
   },
-  "homepage": "https://github.com/qd-qd/js-template#readme",
+  "homepage": "https://github.com/qd-qd/template-js-lib#readme",
   "license": "Apache-2.0",
   "devDependencies": {
     "@parcel/packager-ts": "^2.9.1",
