@@ -25,7 +25,7 @@
     "lint": "rome check src tests",
     "lint:format": "rome format src tests",
     "lint:write": "npm run lint -- --apply-unsafe",
-    "lint:ci": "npm run lint -- --ci",
+    "lint:ci": "rome ci src tests",
     "hooks": "lefthook run pre-push",
     "hooks:install": "lefthook install",
     "hooks:uninstall": "lefthook uninstall"
