@@ -2,7 +2,13 @@
   "name": "js-template",
   "version": "0.0.1",
   "description": "A template to boostrap js library",
-  "main": "index.js",
+  "source": "src/index.ts",
+  "module": "dist/module.js",
+  "types": "dist/types.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">= 18"
   },
@@ -10,6 +16,9 @@
     "template"
   ],
   "scripts": {
+    "build": "parcel build",
+    "build:verbose": "npm run build -- --detailed-report",
+    "build:watch": "parcel watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "contributors": [
@@ -27,5 +36,10 @@
     "url": "https://github.com/qd-qd/js-template/issues"
   },
   "homepage": "https://github.com/qd-qd/js-template#readme",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@parcel/packager-ts": "^2.9.1",
+    "@parcel/transformer-typescript-types": "^2.9.1",
+    "parcel": "^2.9.1"
+  }
 }
