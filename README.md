@@ -18,8 +18,11 @@ Once you have created a repository based on this template, you will need to adap
 - Update the description, the version, the keywords, the contributors list, the repository url, the bug url, and the homepage of the package in the [package.json](./package.json) file.
 - Update the license in the [LICENSE.md](./LICENSE.md) file and in the [package.json](./package.json) file if needed. If you want to use another license, you can use the [choosealicense.com](https://choosealicense.com/) website to find the license that best fits your needs. Note that the license must be a [SPDX license identifier](https://spdx.org/licenses/). In any case, don't forget to update the year and the name of the author in the [LICENSE.md](./LICENSE.md) file and to adapt the [license section](#license) in this file accordingly.
 - Go to the [settings of your Github account](https://github.com/settings/tokens?type=beta) to create a personal access token. Make sure to select the permissions listed below. Once create, copy the token, go to the Github repository of this project and create a secret named `RELEASE_TOKEN` with the value of the token you just created. This secret is required by the [release-package.yml](./.github/workflows/release-package.yml) workflow. Here are the **repositories** permissions required by the token:
-  - Read access to commit statuses, metadata, and pull requests
-  - Read and Write access to actions and code
+  - Actions: Read and write
+  - Contents: Read and write
+  - Commit statuses: Read-only
+  - Metadata: Read-only
+  - Pull requests: Read-only
 
 That's it! You can now start building your library. Refer to the sections below for more information on how to build, test, and release your library using the preconfigured tools.
 
