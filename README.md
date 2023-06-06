@@ -103,6 +103,14 @@ Finally, to run the linter and formatter in write mode run the following command
 npm run lint:write
 ```
 
+## Node version manager
+
+This template uses [nvm](https://github.com/nvm-sh/nvm) to manage the Node version. It is configured to use the version specified in the [.nvmrc](./.nvmrc) file. The version has been set to the latest LTS version. If you and your contributors use nvm, you can simply run the command below in the project directory to use the correct version of Node. Read the [nvm documentation](https://github.com/nvm-sh/nvm#deeper-shell-integration) if you want to automatically use the correct version of Node when you enter the project directory.
+
+```sh
+nvm install && nvm use
+```
+
 ## Contributing
 
 Refer to the [contributing guidelines](./CONTRIBUTING.md) for more information.
