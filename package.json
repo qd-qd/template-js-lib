@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A template to boostrap js library",
   "source": "src/index.ts",
-  "module": "dist/module.js",
+  "main": "dist/module.js",
   "types": "dist/types.d.ts",
   "type": "module",
   "files": [
