@@ -1,7 +1,7 @@
 {
   "name": "@qd-qd/template-js-lib",
   "version": "2.0.0",
-  "description": "A template to boostrap js library",
+  "description": "A template to boostrap ts library",
   "source": "src/index.ts",
   "main": "dist/module.js",
   "types": "dist/types.d.ts",
@@ -30,20 +30,9 @@
     "hooks:install": "lefthook install",
     "hooks:uninstall": "lefthook uninstall"
   },
-  "contributors": [
-    {
-      "name": "qd-qd",
-      "email": "qdqdqdqdqd@protonmail.com",
-      "url": "https://github.com/qd-qd"
-    }
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:qd-qd/template-js-lib.git"
-  },
-  "bugs": {
-    "url": "https://github.com/qd-qd/template-js-lib/issues"
-  },
+  "author": "qd-qd https://github.com/qd-qd",
+  "repository": "github:@qd-qd/template-js-lib",
+  "bugs": "https://github.com/qd-qd/template-js-lib/issues",
   "homepage": "https://github.com/qd-qd/template-js-lib#readme",
   "license": "Apache-2.0",
   "devDependencies": {
