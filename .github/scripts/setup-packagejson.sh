@@ -35,3 +35,12 @@ echo "$JQ_OUTPUT" >package.json
 sedi() {
     sed --version >/dev/null 2>&1 && sed -i -- "$@" || sed -i "" "$@"
 }
+
+# Rename instances of "qd-qd/template-js-lib" to the new repo name in README.md for badges only
+sedi "/github-editor-url/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-quality-url/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-quality-badge/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-test-url/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-test-badge/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-release-url/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
+sedi "/gha-release-badge/ s|qd-qd/template-js-lib|"${GITHUB_REPOSITORY}"|;" "README.md"
