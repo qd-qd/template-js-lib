@@ -1,8 +1,21 @@
 # JS template
 
-[![quality workflow](https://github.com/qd-qd/template-js-lib/actions/workflows/quality-checks.yml/badge.svg?branch=main)](https://github.com/qd-qd/template-js-lib/actions/workflows/quality-checks.yml)
-[![unit-test workflow](https://github.com/qd-qd/template-js-lib/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/qd-qd/template-js-lib/actions/workflows/tests.yml)
-[![Publish package to GitHub Packages](https://github.com/qd-qd/template-js-lib/actions/workflows/release-package.yml/badge.svg)](https://github.com/qd-qd/template-js-lib/actions/workflows/release-package.yml)
+[![Open in Github][github-editor-badge]][github-editor-url] [![Github Actions][gha-quality-badge]][gha-quality-url]
+[![Github Actions][gha-test-badge]][gha-test-url]
+[![Github Actions][gha-release-badge]][gha-release-url] [![ts][ts-badge]][ts] [![License: APACHE-2][license-badge]][license]
+
+[github-editor-url]: https://github.dev/qd-qd/template-js-lib/tree/main
+[github-editor-badge]: https://img.shields.io/badge/Github-Open%20the%20Editor-purple?logo=github
+[gha-quality-url]: https://github.com/qd-qd/template-js-lib/actions/workflows/quality-checks.yml
+[gha-quality-badge]: https://github.com/qd-qd/template-js-lib/actions/workflows/quality-checks.yml/badge.svg?branch=main
+[gha-test-url]: https://github.com/qd-qd/template-js-lib/actions/workflows/tests.yml
+[gha-test-badge]: https://github.com/qd-qd/template-js-lib/actions/workflows/tests.yml/badge.svg?branch=main
+[gha-release-url]: https://github.com/qd-qd/template-js-lib/actions/workflows/release-package.yml
+[gha-release-badge]: https://github.com/qd-qd/template-js-lib/actions/workflows/release-package.yml/badge.svg
+[ts]: https://www.typescriptlang.org/docs/
+[ts-badge]: https://img.shields.io/badge/Built%20with-Typecript-3178C6.svg?logo=typescript&logoColor=white
+[license]: ./LICENSE.md
+[license-badge]: https://img.shields.io/badge/License-APACHE2-pink.svg
 
 ## Description
 
@@ -13,6 +26,7 @@ To use this template, simply click the "Use this template" button on the GitHub 
 ## How to adapt the template
 
 Once you have created a repository based on this template, you will need to adapt it to fit your needs. Here are the steps you should follow:
+
 - Update the name of the package in the [package.json](./package.json) file. Note that the name of the package must be scoped to your GitHub username or organization name. For example, if your GitHub username is `john-doe`, the name of the package should be `@john-doe/package-name`. It is required by the [release-package.yml](./.github/workflows/release-package.yml) workflow
 - Run the installation command to propagate the name of the package in the [./package-lock.json](./package-lock.json) file. Follow the instructions in the [installation section](#installation)
 - Update the description, the version, the keywords, the contributors list, the repository url, the bug url, and the homepage of the package in the [package.json](./package.json) file.
