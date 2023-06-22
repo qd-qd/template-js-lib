@@ -32,7 +32,7 @@ jobs:
         run: |
           rm -f "./.github/FUNDING.yml"
           rm -f "./.github/scripts/setup-packagejson.sh"
-          rm -f "./.github/workflows/create.yml"
+          rm -f "./.github/workflows/setup-template.yml"
 
       - name: "Add remove summary"
         run: |
