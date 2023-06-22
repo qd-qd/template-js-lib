@@ -17,28 +17,35 @@
 [license]: ./LICENSE.md
 [license-badge]: https://img.shields.io/badge/License-APACHE2-pink.svg
 
+A Typescript-based template for developing Typescript libraries, with sensible defaults.
+
 ## Description
 
 This is a template repository for bootstrapping a TypeScript library. It comes pre-configured with useful npm scripts and continuous integration (CI) workflows for quality checks, unit tests, and package releases. The repository is set up to publish packages to GitHub Packages, but it can easily be adapted to publish to other package registries like npm.
 
-To use this template, simply click the "Use this template" button on the GitHub repository page and follow the prompts to create a new repository based on this template. Then, customize the repository to fit your needs and start building your library!
+To use this template, simply click the "Use this template" button on the GitHub repository page and follow the prompts to create a new repository based on this template.
 
-## How to adapt the template
+## What's Inside
 
-Once you have created a repository based on this template, you will need to adapt it to fit your needs. Here are the steps you should follow:
+- [Parcel](https://parceljs.org/): Blazing fast, zero configuration web application bundler
+- [Jest](https://jestjs.io/): Delightful JavaScript testing framework
+- [Rome](https://rome.tools/): Unified developer tools for JavaScript, TypeScript. Used for linting, and formatting.
+- [Lefthook](https://github.com/evilmartians/lefthook): Fast and powerful Git hooks manager for any type of projects
+- [nvm](https://github.com/nvm-sh/nvm): Node Version Manager
 
-- Update the name of the package in the [package.json](./package.json) file. Note that the name of the package must be scoped to your GitHub username or organization name. For example, if your GitHub username is `john-doe`, the name of the package should be `@john-doe/package-name`. It is required by the [release-package.yml](./.github/workflows/release-package.yml) workflow
-- Run the installation command to propagate the name of the package in the [./package-lock.json](./package-lock.json) file. Follow the instructions in the [installation section](#installation)
-- Update the description, the version, the keywords, the contributors list, the repository url, the bug url, and the homepage of the package in the [package.json](./package.json) file.
-- Update the license in the [LICENSE.md](./LICENSE.md) file and in the [package.json](./package.json) file if needed. If you want to use another license, you can use the [choosealicense.com](https://choosealicense.com/) website to find the license that best fits your needs. Note that the license must be a [SPDX license identifier](https://spdx.org/licenses/). In any case, don't forget to update the year and the name of the author in the [LICENSE.md](./LICENSE.md) file and to adapt the [license section](#license) in this file accordingly.
-- Go to the [settings of your Github account](https://github.com/settings/tokens?type=beta) to create a personal access token. Make sure to select the permissions listed below. Once create, copy the token, go to the Github repository of this project and create a secret named `RELEASE_TOKEN` with the value of the token you just created. This secret is required by the [release-package.yml](./.github/workflows/release-package.yml) workflow. Here are the **repositories** permissions required by the token:
-  - Actions: Read and write
-  - Contents: Read and write
-  - Commit statuses: Read-only
-  - Metadata: Read-only
-  - Pull requests: Read-only
+## Sensible Defaults
 
-That's it! You can now start building your library. Refer to the sections below for more information on how to build, test, and release your library using the preconfigured tools.
+This template comes with a set of sensible default configurations for you to use. These defaults can be found in the
+following files:
+
+```text
+├── .gitignore
+├── .npmignore
+├── .nvmrc
+├── .jest.config.mjs
+├── lefthook.yml
+└── rome.json
+```
 
 ## Installation
 
@@ -58,7 +65,38 @@ The project uses [parcel](https://parceljs.org/) to build and bundle the code. T
 npm run build
 ```
 
-### Git hooks
+## GitHub Actions
+
+This template comes with GitHub Actions pre-configured.
+
+- [quality-checks](./.github/workflows/quality-checks.yml): runs the build command, the linter and the formatter
+  on every push and pull request made to the `main` branch.
+- [tests](./.github/workflows/tests.yml): runs the tests onsevery push and pull request made to the `main` branch.
+- [release-package](./.github/workflows/release-package.yml): creates a new release every time you push a new tag to
+  the repository. This action is only triggered on tags starting with `v`. Once the release is created, the action is
+  also in charge of deploying the documentation to the `gh-pages` branch. **THIS ACTION NEEDS AN ACTION FROM YOUR SIDE
+  TO WORK**
+- [tests-coverage](./.github/workflows/tests-coverage.yml): runs the tests and generates a coverage report on every pull
+  request made to the `main` branch. A comment is posted on the pull request with the coverage report.
+
+You can edit the CI scripts in the [workflows directory](./.github/workflows).
+
+### Configure the release action
+
+The release action is in charge of deploying the documentation to the `gh-pages` branch. To do so, it needs to have a
+personal access token with the right permissions. To create this token, go to the
+[settings of your Github account](https://github.com/settings/tokens?type=beta). Make sure to select the permissions
+listed below. Once create, copy the token, go to the Github repository of this project and create a secret named
+`RELEASE_TOKEN` with the value of the token you just created. Here are the **repositories** permissions required by the
+token:
+
+- Actions: Read and write
+- Contents: Read and write
+- Commit statuses: Read-only
+- Metadata: Read-only
+- Pull requests: Read-only
+
+## Git hooks
 
 This project uses `Lefthook` to manage Git hooks. Git hooks are scripts that run automatically when certain Git events occur, such as committing code or pushing changes to a remote repository. `Lefthook` makes it easy to manage and run any type of scripts.
 
