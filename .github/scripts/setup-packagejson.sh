@@ -12,23 +12,33 @@ echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
 echo "GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER"
 echo "GITHUB_REPOSITORY_DESCRIPTION: $GITHUB_REPOSITORY_DESCRIPTION"
 
-# jq is like sed for JSON data
-JQ_OUTPUT=$(
-    jq \
-        --arg NAME "@$GITHUB_REPOSITORY" \
-        --arg AUTHOR "$GITHUB_REPOSITORY_OWNER https://github.com/$GITHUB_REPOSITORY_OWNER" \
-        --arg REPOSITORY "github:@$GITHUB_REPOSITORY" \
-        --arg BUGS "https://github.com/$GITHUB_REPOSITORY/issues" \
-        --arg HOMEPAGE "https://github.com/$GITHUB_REPOSITORY#readme" \
-        --arg VERSION "0.0.1" \
-        --arg DESCRIPTION "$GITHUB_REPOSITORY_DESCRIPTION" \
-        '.name = $NAME | .author = $AUTHOR | .repository = $REPOSITORY |
+
+# Create a new package.json file with the new values
+JQ_OUTPUT_PACKAGE=$(
+  jq \
+    --arg NAME "@$GITHUB_REPOSITORY" \
+    --arg AUTHOR "$GITHUB_REPOSITORY_OWNER https://github.com/$GITHUB_REPOSITORY_OWNER" \
+    --arg REPOSITORY "github:@$GITHUB_REPOSITORY" \
+    --arg BUGS "https://github.com/$GITHUB_REPOSITORY/issues" \
+    --arg HOMEPAGE "https://github.com/$GITHUB_REPOSITORY#readme" \
+    --arg VERSION "0.0.1" \
+    --arg DESCRIPTION "$GITHUB_REPOSITORY_DESCRIPTION" \
+    '.name = $NAME | .author = $AUTHOR | .repository = $REPOSITORY |
     .bugs = $BUGS | .homepage = $HOMEPAGE | .version = $VERSION | .description = $DESCRIPTION' \
-        package.json
+    package.json
 )
 
-# Overwrite package.json
-echo "$JQ_OUTPUT" >package.json
+# Create a new package-lock.json file with the new values
+JQ_OUTPUTPACKAGE_LOCK=$(
+  jq \
+    --arg VERSION "0.0.1" \
+    '.version = $VERSION | .packages."".version = $VERSION' \
+    package-lock.json
+)
+
+# Save the new version of the package.json and package-lock.json files
+echo "$JQ_OUTPUT_PACKAGE" >package.json
+echo "$JQ_OUTPUTPACKAGE_LOCK" >package-lock.json
 
 # Make sed command compatible in both Mac and Linux environments
 # Reference: https://stackoverflow.com/a/38595160/8696958
